@@ -157,7 +157,7 @@
         - always
       loop:
         - {pkg: distros/sandbox/repository, dest: /tmp/repository/mgmt}
-        - {pkg: nephio/optional/rootsync, dest: /tmp/rootsync/mgmt}
+        - {pkg: nephio/optional/argo-cd-core, dest: /tmp/argo-cd-core/mgmt}
         - {pkg: distros/sandbox/repository, dest: /tmp/repository/mgmt-staging}
       vars:
         repo_uri: "{{ nephio_catalog_repo_uri }}"
