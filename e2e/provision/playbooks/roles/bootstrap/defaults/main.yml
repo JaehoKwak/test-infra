@@ -29,8 +29,8 @@ k8s:
 kind:
   enabled: true
 
-nephio_catalog_repo_uri: https://github.com/nephio-project/catalog.git
-nephio_catalog_revision: v3.0.0
+nephio_catalog_repo_uri: https://github.com/JaehoKwak/catalog.git
+nephio_catalog_revision: R3
 
 gitea:
   enabled: true
@@ -84,6 +84,7 @@ cluster_api:
       - capi-kubeadm-control-plane-system
       - capi-kubeadm-bootstrap-system
       - capd-system
+      - capo-system
   kpt:
     packages:
       - repo_uri: "{{ nephio_catalog_repo_uri }}"
@@ -98,6 +99,16 @@ cluster_api:
         poll: 5
       - repo_uri: "{{ nephio_catalog_repo_uri }}"
         pkg: infra/capi/cluster-capi-kind-docker-templates
+        version: "{{ nephio_catalog_revision }}"
+        async: 1500
+        poll: 0
+      - repo_uri: "{{ nephio_catalog_repo_uri }}"
+        pkg: infra/capi/cluster-capi-infrastructure-openstack
+        version: "{{ nephio_catalog_revision }}"
+        async: 780
+        poll: 5
+      - repo_uri: "{{ nephio_catalog_repo_uri }}"
+        pkg: infra/capi/cluster-capi-openstack
         version: "{{ nephio_catalog_revision }}"
         async: 1500
         poll: 0

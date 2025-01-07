@@ -163,7 +163,7 @@
         repo_uri: "{{ nephio_catalog_repo_uri }}"
         local_dest_directory: "{{ item.dest }}"
         pkg: "{{ item.pkg }}"
-        version: v3.0.0
+        version: R3
         for_deployment: true
         context: "{{ k8s.context }}"
         kpt_async: 900
